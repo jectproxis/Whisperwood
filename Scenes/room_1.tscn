@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cle2k84qlggfb"]
+
+[ext_resource type="Texture2D" uid="uid://dhm7bcvm44y5u" path="res://icon.svg" id="1_mywuq"]
+[ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/shade(player).tscn" id="2_1hb2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06x3c"]
+size = Vector2(21.4462, 19.9078)
+
+[node name="Room_1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(312, 296)
+scale = Vector2(1, 5.32)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(6.04, 1)
+texture = ExtResource("1_mywuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0.187965)
+rotation = 1.5708
+scale = Vector2(5.96, 38.6)
+shape = SubResource("RectangleShape2D_06x3c")
+
+[node name="Shade(Player)" parent="." instance=ExtResource("2_1hb2q")]
+position = Vector2(164, -62)
+jump_force = 400
