@@ -223,7 +223,7 @@ height = 28.0
 texture_filter = 1
 script = ExtResource("1_j8ion")
 move_speed = 7500
-jump_force = 2500
+jump_force = 5000
 dash_length = 750000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

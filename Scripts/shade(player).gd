@@ -10,17 +10,33 @@ class_name Player
 @export var dash_length = 500
 
 var player_attack_scene = preload("res://Scenes/player_attack.tscn")
-var gravity_force = 1000
+var starting_gravity = 1200
+var gravity_force = starting_gravity
+
 var move_direction = 0
+var jump_cap = 450
+
 var animated = false
+var double_jumped = false
 
 func _physics_process(delta):
+	print(velocity.y)
 	#Gravity affects player when not on ground
 	if !is_on_floor():
 		velocity.y += gravity_force * delta
 	
 	if Input.is_action_just_pressed("jump") && is_on_floor():
 		jump(jump_force)
+	
+	#Allows player to air jump once
+	if Input.is_action_just_pressed("jump") && !is_on_floor():
+		if double_jumped == false:
+			jump(jump_force)
+			double_jumped = true
+	
+	#Ensures that the air jump variable resets when player touches grass
+	if is_on_floor():
+		double_jumped = false
 	
 	if Input.is_action_just_pressed("attack"):
 		attack()
@@ -38,6 +54,10 @@ func _physics_process(delta):
 	#Flips sprite to the direction the player is facing
 	if move_direction != 0:
 		animated_sprite.flip_h = (move_direction == -1)
+	
+	#Puts a cap on the double jump
+	if velocity.y < -jump_cap:
+		velocity.y = -jump_cap
 	
 	move_and_slide()
 	update_animations(move_direction)
@@ -83,7 +103,9 @@ func attack():
 		animated = false
 		player_attack.queue_free()
 
+#Player dash and plays the dash animations
 func dash(length):
+	#Player can't attack and dash at the same time
 	if animated == false:
 		animated = true
 		
@@ -100,4 +122,4 @@ func dash(length):
 		
 		await animated_sprite.animation_finished
 		animated = false
-		gravity_force = 1000
+		gravity_force = starting_gravity
