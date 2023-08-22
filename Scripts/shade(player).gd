@@ -15,12 +15,12 @@ var gravity_force = starting_gravity
 
 var move_direction = 0
 var jump_cap = 450
+var max_fall_speed = 700
 
 var animated = false
 var double_jumped = false
 
 func _physics_process(delta):
-	print(velocity.y)
 	#Gravity affects player when not on ground
 	if !is_on_floor():
 		velocity.y += gravity_force * delta
@@ -58,6 +58,10 @@ func _physics_process(delta):
 	#Puts a cap on the double jump
 	if velocity.y < -jump_cap:
 		velocity.y = -jump_cap
+	
+	#Puts a cap on the fall speed
+	if velocity.y > max_fall_speed:
+		velocity.y = max_fall_speed
 	
 	move_and_slide()
 	update_animations(move_direction)

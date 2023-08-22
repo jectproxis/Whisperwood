@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxmv8oxmrr1ka"]
+
+[ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="1_fb65f"]
+
+[node name="SnowyWoodsBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1421, 0)
+
+[node name="Background" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_fb65f")
+centered = false
+region_rect = Rect2(-2.216, -0.869995, 1422.71, 483.714)
