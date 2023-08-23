@@ -125,5 +125,7 @@ func dash(length):
 		move_and_slide()
 		
 		await animated_sprite.animation_finished
-		animated = false
 		gravity_force = starting_gravity
+		
+		await get_tree().create_timer(2.5, true, true)
+		animated = false
