@@ -9,6 +9,8 @@ class_name Player
 @export var jump_force = 500
 @export var dash_length = 500
 
+@export var dash_cooldown_time = 2.5
+
 var player_attack_scene = preload("res://Scenes/player_attack.tscn")
 var starting_gravity = 1200
 var gravity_force = starting_gravity
@@ -18,6 +20,7 @@ var jump_cap = 450
 var max_fall_speed = 700
 
 var animated = false
+var dash_on_cooldown = false
 var double_jumped = false
 
 func _physics_process(delta):
@@ -109,23 +112,29 @@ func attack():
 
 #Player dash and plays the dash animations
 func dash(length):
-	#Player can't attack and dash at the same time
-	if animated == false:
-		animated = true
+	#Puts dash on cooldown after the dash happens
+	if dash_on_cooldown == false:
+		dash_on_cooldown = true
 		
-		velocity.y = 0
-		gravity_force = 0
+		#Player can't attack and dash at the same time
+		if animated == false:
+			animated = true
 		
-		animated_sprite.play("dashing")
+			velocity.y = 0
+			gravity_force = 0
 		
-		await animated_sprite.animation_finished
-		velocity.x += length
-		animated_sprite.play("rematerialize")
+			animated_sprite.play("dashing")
 		
-		move_and_slide()
+			await animated_sprite.animation_finished
+			velocity.x += length
+			animated_sprite.play("rematerialize")
 		
-		await animated_sprite.animation_finished
-		gravity_force = starting_gravity
+			move_and_slide()
 		
-		await get_tree().create_timer(2.5, true, true)
-		animated = false
+			await animated_sprite.animation_finished
+			gravity_force = starting_gravity
+			animated = false
+			
+		#Ends dash cooldown
+		await get_tree().create_timer(dash_cooldown_time).timeout
+		dash_on_cooldown = false
