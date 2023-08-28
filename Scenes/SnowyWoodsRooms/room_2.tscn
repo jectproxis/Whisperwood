@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce1r43e4cmet3"]
 
-[ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/snowy_woods_background.tscn" id="1_60r0u"]
-[ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/shade(player).tscn" id="2_2ewq0"]
-[ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/tile_map.tscn" id="3_abski"]
+[ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_60r0u"]
+[ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_2ewq0"]
+[ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_abski"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d27np"]
 a = Vector2(7, -485)

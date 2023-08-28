@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct17caopdfgfp"]
 
-[ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/snowy_woods_background.tscn" id="1_wfry6"]
-[ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/shade(player).tscn" id="2_6up0u"]
+[ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_wfry6"]
+[ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_6up0u"]
 [ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="2_db3d7"]
-[ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/tile_map.tscn" id="3_qs0qx"]
+[ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_qs0qx"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wd7ae"]
 a = Vector2(-1, -300)

@@ -11,7 +11,7 @@ class_name Player
 
 @export var dash_cooldown_time = 2.5
 
-var player_attack_scene = preload("res://Scenes/player_attack.tscn")
+var player_attack_scene = preload("res://Scenes/PlayerComponents/player_attack.tscn")
 var starting_gravity = 1200
 var gravity_force = starting_gravity
 
