@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct17caopdfgfp"]
+[gd_scene load_steps=7 format=3 uid="uid://ct17caopdfgfp"]
 
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_wfry6"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_6up0u"]
 [ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="2_db3d7"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_qs0qx"]
+[ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="5_y1mxi"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wd7ae"]
 a = Vector2(-1, -300)
@@ -38,6 +39,19 @@ position = Vector2(987, -26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
 position = Vector2(2, 190)
 shape = SubResource("SegmentShape2D_wd7ae")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint_12" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(39, 173)
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" instance=ExtResource("5_y1mxi")]
+position = Vector2(6, 56)
+scale = Vector2(0.2, 13.6)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_5.tscn"
+spawnpoint = "SpawnPoint_10"
 
 [editable path="SnowyWoodsBackground"]
 [editable path="Shade(Player)"]

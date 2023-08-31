@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce1r43e4cmet3"]
+[gd_scene load_steps=6 format=3 uid="uid://ce1r43e4cmet3"]
 
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_60r0u"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_2ewq0"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_abski"]
+[ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="4_qnk6a"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d27np"]
 a = Vector2(7, -485)
@@ -13,7 +14,6 @@ b = Vector2(0, 387)
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_60r0u")]
 
 [node name="Shade(Player)" parent="." instance=ExtResource("2_2ewq0")]
-position = Vector2(19, 346)
 
 [node name="Camera2D" parent="Shade(Player)" index="2"]
 limit_left = 0
@@ -37,5 +37,38 @@ position = Vector2(1857, -17)
 position = Vector2(-55, 349)
 rotation = 0.00629143
 shape = SubResource("SegmentShape2D_d27np")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint_02" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(7, 352)
+
+[node name="SpawnPoint_03" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(1787, 146)
+
+[node name="SpawnPoint_04" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(1783, 453)
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" instance=ExtResource("4_qnk6a")]
+position = Vector2(1800, 392)
+rotation = 3.14159
+scale = Vector2(0.232903, -7.55886)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_3.tscn"
+spawnpoint = "SpawnPoint_05"
+
+[node name="Exit2" parent="Exits" instance=ExtResource("4_qnk6a")]
+position = Vector2(1804, 80)
+rotation = 3.14159
+scale = Vector2(0.232903, -8.07886)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_4.tscn"
+spawnpoint = "SpawnPoint_06"
+
+[node name="Exit3" parent="Exits" instance=ExtResource("4_qnk6a")]
+position = Vector2(-15, 158)
+scale = Vector2(0.240001, 20.88)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_1.tscn"
+spawnpoint = "SpawnPoint_01"
 
 [editable path="Shade(Player)"]

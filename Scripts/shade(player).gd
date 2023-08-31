@@ -23,6 +23,9 @@ var animated = false
 var dash_on_cooldown = false
 var double_jumped = false
 
+func _ready():
+	spawn()
+
 func _physics_process(delta):
 	#Gravity affects player when not on ground
 	if !is_on_floor():
@@ -138,3 +141,12 @@ func dash(length):
 		#Ends dash cooldown
 		await get_tree().create_timer(dash_cooldown_time).timeout
 		dash_on_cooldown = false
+
+func spawn():
+	var spawnpoints = []
+	spawnpoints = get_tree().get_nodes_in_group("SpawnPoint")
+	
+	for spawnpoint in spawnpoints:
+		if Spawn.spawnpoint == spawnpoint.name:
+			global_position = spawnpoint.global_position
+			break

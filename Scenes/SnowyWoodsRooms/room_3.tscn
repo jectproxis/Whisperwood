@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjrtlecwev0ml"]
+[gd_scene load_steps=6 format=3 uid="uid://bjrtlecwev0ml"]
 
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_7myxb"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="2_oj6nh"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="3_nggv6"]
+[ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="4_dfxcf"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ehg2y"]
 a = Vector2(-1, -537)
@@ -13,7 +14,6 @@ b = Vector2(-1, 219)
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_7myxb")]
 
 [node name="Shade(Player)" parent="." instance=ExtResource("3_nggv6")]
-position = Vector2(15, 444)
 
 [node name="Camera2D" parent="Shade(Player)" index="2"]
 limit_left = 0
@@ -33,5 +33,18 @@ position = Vector2(1215, 447)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
 shape = SubResource("SegmentShape2D_ehg2y")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint_05" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(11, 440)
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" instance=ExtResource("4_dfxcf")]
+position = Vector2(-19, 271)
+scale = Vector2(0.303902, 19.3511)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_2.tscn"
+spawnpoint = "SpawnPoint_04"
 
 [editable path="Shade(Player)"]

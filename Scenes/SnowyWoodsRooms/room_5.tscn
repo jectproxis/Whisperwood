@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq0ejcwd4pk8c"]
+[gd_scene load_steps=7 format=3 uid="uid://cq0ejcwd4pk8c"]
 
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_l61o8"]
 [ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="2_xam1j"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="4_exa8c"]
+[ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="5_a2506"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="5_xh5p4"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4wx1y"]
@@ -37,6 +38,37 @@ position = Vector2(1990, 491)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
 shape = SubResource("SegmentShape2D_4wx1y")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint_08" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(29, 447)
+
+[node name="SpawnPoint_09" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(21, 112)
+
+[node name="SpawnPoint_10" type="Marker2D" parent="SpawnPoints" groups=["SpawnPoint"]]
+position = Vector2(1963, 182)
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" instance=ExtResource("5_a2506")]
+position = Vector2(4, 330)
+scale = Vector2(0.2, 13.4)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_4.tscn"
+spawnpoint = "SpawnPoint_07"
+
+[node name="Exit2" parent="Exits" instance=ExtResource("5_a2506")]
+position = Vector2(4, 54)
+scale = Vector2(0.200001, 7.44)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_6.tscn"
+spawnpoint = "SpawnPoint_11"
+
+[node name="Exit3" parent="Exits" instance=ExtResource("5_a2506")]
+position = Vector2(1986, 85)
+scale = Vector2(-0.189379, 10.7177)
+target_scene = "res://Scenes/SnowyWoodsRooms/room_7.tscn"
+spawnpoint = "SpawnPoint_12"
 
 [editable path="SnowyWoodsBackground"]
 [editable path="Shade(Player)"]

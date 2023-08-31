@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/SnowyWoodsRooms/room_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Spawn="*res://Scripts/spawn.gd"
+
 [display]
 
 window/size/viewport_width=640
