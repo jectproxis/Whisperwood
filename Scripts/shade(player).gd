@@ -142,10 +142,13 @@ func dash(length):
 		await get_tree().create_timer(dash_cooldown_time).timeout
 		dash_on_cooldown = false
 
+#Spawns the player at the designated spawnpoint
 func spawn():
 	var spawnpoints = []
 	spawnpoints = get_tree().get_nodes_in_group("SpawnPoint")
 	
+	#Iterates through the spawnpoints in the scene and finds one that matches the target name
+	#then sets that as the player spawnpoint
 	for spawnpoint in spawnpoints:
 		if Spawn.spawnpoint == spawnpoint.name:
 			global_position = spawnpoint.global_position

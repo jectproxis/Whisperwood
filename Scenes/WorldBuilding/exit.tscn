@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ka8r"]
 
 [node name="Exit" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_igowu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
