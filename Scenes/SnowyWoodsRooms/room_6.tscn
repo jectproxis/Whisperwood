@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr0wih5e7bt0n"]
+[gd_scene load_steps=8 format=3 uid="uid://cr0wih5e7bt0n"]
 
+[ext_resource type="Script" path="res://Scripts/room_6.gd" id="1_1v8l2"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="1_li5om"]
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="2_cvukr"]
 [ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="3_6tk41"]
@@ -11,6 +12,7 @@ a = Vector2(3, -455)
 b = Vector2(1, 397)
 
 [node name="Room_6" type="Node2D"]
+script = ExtResource("1_1v8l2")
 
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("2_cvukr")]
 
@@ -45,6 +47,9 @@ position = Vector2(35, -57)
 scale = Vector2(0.307497, 21.5018)
 target_scene = "res://Scenes/SnowyWoodsRooms/room_5.tscn"
 spawnpoint = "SpawnPoint_09"
+
+[node name="ShearsSpawn" type="Marker2D" parent="." groups=["ShearsSpawn"]]
+position = Vector2(-767, 161)
 
 [editable path="SnowyWoodsBackground"]
 [editable path="Shade(Player)"]

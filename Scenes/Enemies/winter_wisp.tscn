@@ -9,7 +9,7 @@ radius = 6.0
 [node name="WinterWisp" type="Area2D"]
 position = Vector2(8, 7)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_ualqe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,14 +18,15 @@ texture = ExtResource("1_k7rvs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ncx1o")
 
-[node name="LeftWallCheck" type="RayCast2D" parent="."]
+[node name="WorldCollisionCheck" type="Node2D" parent="."]
+
+[node name="LeftWallCheck" type="RayCast2D" parent="WorldCollisionCheck"]
 target_position = Vector2(-9, 0)
 
-[node name="RightWallCheck" type="RayCast2D" parent="."]
+[node name="RightWallCheck" type="RayCast2D" parent="WorldCollisionCheck"]
 target_position = Vector2(9, 0)
-collide_with_areas = true
 
-[node name="GroundCheck" type="RayCast2D" parent="."]
+[node name="GroundCheck" type="RayCast2D" parent="WorldCollisionCheck"]
 target_position = Vector2(0, 24)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

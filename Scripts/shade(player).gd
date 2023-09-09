@@ -19,58 +19,63 @@ var move_direction = 0
 var jump_cap = 450
 var max_fall_speed = 700
 
+var push_force = 500
+
 var animated = false
 var dash_on_cooldown = false
 var double_jumped = false
+
+var dead = false
 
 func _ready():
 	spawn()
 
 func _physics_process(delta):
-	#Gravity affects player when not on ground
-	if !is_on_floor():
-		velocity.y += gravity_force * delta
-	
-	if Input.is_action_just_pressed("jump") && is_on_floor():
-		jump(jump_force)
-	
-	#Allows player to air jump once
-	if Input.is_action_just_pressed("jump") && !is_on_floor():
-		if double_jumped == false:
+	if !dead:
+		#Gravity affects player when not on ground
+		if !is_on_floor():
+			velocity.y += gravity_force * delta
+		
+		if Input.is_action_just_pressed("jump") && is_on_floor():
 			jump(jump_force)
-			double_jumped = true
-	
-	#Ensures that the air jump variable resets when player touches grass
-	if is_on_floor():
-		double_jumped = false
-	
-	if Input.is_action_just_pressed("attack"):
-		attack()
 		
-	if Input.is_action_just_pressed("dash"):
-		if animated_sprite.flip_h:
-			dash(-dash_length * delta)
-		else:
-			dash(dash_length * delta)
+		#Allows player to air jump once
+		if Input.is_action_just_pressed("jump") && !is_on_floor():
+			if double_jumped == false && PlayerData.can_double_jump:
+				jump(jump_force)
+				double_jumped = true
 		
-	#Code to move left and right at move_speed
-	move_direction = Input.get_axis("move_left","move_right")
-	velocity.x = move_direction * move_speed * delta
-	
-	#Flips sprite to the direction the player is facing
-	if move_direction != 0:
-		animated_sprite.flip_h = (move_direction == -1)
-	
-	#Puts a cap on the double jump
-	if velocity.y < -jump_cap:
-		velocity.y = -jump_cap
-	
-	#Puts a cap on the fall speed
-	if velocity.y > max_fall_speed:
-		velocity.y = max_fall_speed
-	
-	move_and_slide()
-	update_animations(move_direction)
+		#Ensures that the air jump variable resets when player touches grass
+		if is_on_floor():
+			double_jumped = false
+		
+		if Input.is_action_just_pressed("attack"):
+			attack()
+			
+		if Input.is_action_just_pressed("dash") && PlayerData.can_dash:
+			if animated_sprite.flip_h:
+				dash(-dash_length * delta)
+			else:
+				dash(dash_length * delta)
+			
+		#Code to move left and right at move_speed
+		move_direction = Input.get_axis("move_left","move_right")
+		velocity.x = move_direction * move_speed * delta
+		
+		#Flips sprite to the direction the player is facing
+		if move_direction != 0:
+			animated_sprite.flip_h = (move_direction == -1)
+		
+		#Puts a cap on the double jump
+		if velocity.y < -jump_cap:
+			velocity.y = -jump_cap
+		
+		#Puts a cap on the fall speed
+		if velocity.y > max_fall_speed:
+			velocity.y = max_fall_speed
+		
+		move_and_slide()
+		update_animations(move_direction)
 
 #Player jumps with the power of force
 func jump(force):
@@ -153,3 +158,17 @@ func spawn():
 		if Spawn.spawnpoint == spawnpoint.name:
 			global_position = spawnpoint.global_position
 			break
+
+#Player loses health and dies if hp is equal to or less than 0
+func take_damage(damage_taken):
+	PlayerData.player_hp = PlayerData.player_hp - damage_taken
+	print(PlayerData.player_hp)
+	
+	if PlayerData.player_hp <= 0:
+		die()
+
+#Player dies, can no longer move, restart screen displays
+func die():
+	animated = true
+	dead = true
+	animated_sprite.play("die")

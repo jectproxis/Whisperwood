@@ -14,6 +14,9 @@ b = Vector2(0, 387)
 
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_60r0u")]
 
+[node name="WinterWisp" parent="." instance=ExtResource("5_rp4bb")]
+position = Vector2(502, 353)
+
 [node name="Shade(Player)" parent="." instance=ExtResource("2_2ewq0")]
 position = Vector2(188, 344)
 
@@ -73,8 +76,16 @@ scale = Vector2(0.240001, 20.88)
 target_scene = "res://Scenes/SnowyWoodsRooms/room_1.tscn"
 spawnpoint = "SpawnPoint_01"
 
-[node name="WinterWisp" parent="." instance=ExtResource("5_rp4bb")]
-position = Vector2(318, 418)
-collision_mask = 1
+[node name="WinterWisp2" parent="." instance=ExtResource("5_rp4bb")]
+position = Vector2(783, 290)
+
+[node name="WinterWisp3" parent="." instance=ExtResource("5_rp4bb")]
+position = Vector2(1112, 372)
+
+[node name="WinterWisp4" parent="." instance=ExtResource("5_rp4bb")]
+position = Vector2(1355, 276)
+
+[node name="WinterWisp5" parent="." instance=ExtResource("5_rp4bb")]
+position = Vector2(1696, 244)
 
 [editable path="Shade(Player)"]

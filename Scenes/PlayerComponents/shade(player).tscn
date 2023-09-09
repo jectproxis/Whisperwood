@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cwdorqho2b1w7"]
+[gd_scene load_steps=37 format=3 uid="uid://cwdorqho2b1w7"]
 
 [ext_resource type="Texture2D" uid="uid://dl2hjfuk5kc5t" path="res://Assets/Textures/Shade(Player)/AnimationSheet_Character.png" id="1_fduj6"]
 [ext_resource type="Script" path="res://Scripts/shade(player).gd" id="1_j8ion"]
@@ -42,6 +42,38 @@ region = Rect2(32, 192, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsm71"]
 atlas = ExtResource("1_fduj6")
 region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsbv8"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne1ca"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlbwu"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g63ts"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bijdy"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8kdf"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgai7"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(192, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leb5j"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(224, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3kgs"]
 atlas = ExtResource("1_fduj6")
@@ -143,6 +175,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jsbv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne1ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlbwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g63ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bijdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8kdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgai7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leb5j")
+}],
+"loop": false,
+"name": &"die",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_c3kgs")
 }],
 "loop": true,
@@ -231,8 +292,10 @@ dash_cooldown_time = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kskfx")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2)
