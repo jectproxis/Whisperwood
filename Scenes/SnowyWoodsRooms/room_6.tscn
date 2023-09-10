@@ -49,7 +49,7 @@ target_scene = "res://Scenes/SnowyWoodsRooms/room_5.tscn"
 spawnpoint = "SpawnPoint_09"
 
 [node name="ShearsSpawn" type="Marker2D" parent="." groups=["ShearsSpawn"]]
-position = Vector2(-767, 161)
+position = Vector2(-766, 167)
 
 [editable path="SnowyWoodsBackground"]
 [editable path="Shade(Player)"]
