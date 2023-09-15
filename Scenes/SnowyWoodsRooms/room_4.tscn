@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx8dunnk01s7s"]
+[gd_scene load_steps=9 format=3 uid="uid://cx8dunnk01s7s"]
 
+[ext_resource type="Script" path="res://Scripts/default_room.gd" id="1_iaco8"]
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_t0i8p"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_xnap4"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_rr8uv"]
 [ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="4_f72hy"]
+[ext_resource type="PackedScene" uid="uid://bapmftnc0irss" path="res://Scenes/Enemies/winter_wisp.tscn" id="5_cgpnu"]
+[ext_resource type="PackedScene" uid="uid://bndjt1r0mswbv" path="res://Scenes/SnowyWoodsRooms/ui.tscn" id="6_sg0s8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jjyk0"]
 a = Vector2(0, -348)
 b = Vector2(0, 263)
 
 [node name="Room_4" type="Node2D"]
+script = ExtResource("1_iaco8")
 
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_t0i8p")]
 
@@ -56,5 +60,37 @@ position = Vector2(1352, -2)
 scale = Vector2(2.24, 0.24)
 target_scene = "res://Scenes/SnowyWoodsRooms/room_5.tscn"
 spawnpoint = "SpawnPoint_08"
+
+[node name="WinterWisp" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(338, 291)
+
+[node name="WinterWisp2" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(161, 290)
+move_speed = -50
+
+[node name="WinterWisp3" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(472, 130)
+
+[node name="WinterWisp4" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(683, 162)
+move_speed = -50
+
+[node name="WinterWisp5" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(919, 240)
+move_speed = -50
+
+[node name="WinterWisp8" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(1241, 98)
+move_speed = -50
+
+[node name="WinterWisp6" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(1308, 319)
+move_speed = -50
+
+[node name="WinterWisp7" parent="." instance=ExtResource("5_cgpnu")]
+position = Vector2(956, 320)
+move_speed = -50
+
+[node name="UI" parent="." instance=ExtResource("6_sg0s8")]
 
 [editable path="Shade(Player)"]

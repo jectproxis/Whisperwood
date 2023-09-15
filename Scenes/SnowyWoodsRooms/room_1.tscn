@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cle2k84qlggfb"]
+[gd_scene load_steps=8 format=3 uid="uid://cle2k84qlggfb"]
 
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_iaf3e"]
+[ext_resource type="Script" path="res://Scripts/default_room.gd" id="1_v37j4"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_ndwel"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_xx5cr"]
 [ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="4_mdp47"]
+[ext_resource type="PackedScene" uid="uid://bndjt1r0mswbv" path="res://Scenes/SnowyWoodsRooms/ui.tscn" id="5_jpxnj"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qq554"]
 b = Vector2(1, -463)
 
 [node name="Room_1" type="Node2D"]
+script = ExtResource("1_v37j4")
 
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_iaf3e")]
 
@@ -49,5 +52,7 @@ position = Vector2(1115, 207)
 scale = Vector2(0.43999, 15.88)
 target_scene = "res://Scenes/SnowyWoodsRooms/room_2.tscn"
 spawnpoint = "SpawnPoint_02"
+
+[node name="UI" parent="." instance=ExtResource("5_jpxnj")]
 
 [editable path="Shade(Player)"]

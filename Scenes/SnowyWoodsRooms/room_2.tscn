@@ -1,21 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce1r43e4cmet3"]
+[gd_scene load_steps=9 format=3 uid="uid://ce1r43e4cmet3"]
 
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_60r0u"]
+[ext_resource type="Script" path="res://Scripts/default_room.gd" id="1_mochq"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="2_2ewq0"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="3_abski"]
 [ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="4_qnk6a"]
 [ext_resource type="PackedScene" uid="uid://bapmftnc0irss" path="res://Scenes/Enemies/winter_wisp.tscn" id="5_rp4bb"]
+[ext_resource type="PackedScene" uid="uid://bndjt1r0mswbv" path="res://Scenes/SnowyWoodsRooms/ui.tscn" id="6_qa8b2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_d27np"]
 a = Vector2(7, -485)
 b = Vector2(0, 387)
 
 [node name="Room_2" type="Node2D"]
+script = ExtResource("1_mochq")
 
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_60r0u")]
-
-[node name="WinterWisp" parent="." instance=ExtResource("5_rp4bb")]
-position = Vector2(502, 353)
 
 [node name="Shade(Player)" parent="." instance=ExtResource("2_2ewq0")]
 position = Vector2(188, 344)
@@ -76,6 +76,9 @@ scale = Vector2(0.240001, 20.88)
 target_scene = "res://Scenes/SnowyWoodsRooms/room_1.tscn"
 spawnpoint = "SpawnPoint_01"
 
+[node name="WinterWisp" parent="." instance=ExtResource("5_rp4bb")]
+position = Vector2(502, 353)
+
 [node name="WinterWisp2" parent="." instance=ExtResource("5_rp4bb")]
 position = Vector2(783, 290)
 
@@ -87,5 +90,7 @@ position = Vector2(1355, 276)
 
 [node name="WinterWisp5" parent="." instance=ExtResource("5_rp4bb")]
 position = Vector2(1696, 244)
+
+[node name="UI" parent="." instance=ExtResource("6_qa8b2")]
 
 [editable path="Shade(Player)"]

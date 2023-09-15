@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbltqlkwpyg20"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_5owck"]
+[ext_resource type="Texture2D" uid="uid://rw2vh535val" path="res://Assets/Textures/UIElements/Heart.png" id="1_pmgrs"]
+[ext_resource type="FontFile" uid="uid://crkqtfwcd84jb" path="res://Assets/Textures/Fonts/Kenney Pixel Square.ttf" id="2_l1b1o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1efjf"]
+font = ExtResource("2_l1b1o")
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5owck")
+
+[node name="Heart" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 53.0
+offset_bottom = 55.0
+scale = Vector2(0.53, 0.53)
+texture = ExtResource("1_pmgrs")
+
+[node name="HP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 14.0
+offset_right = 80.0
+offset_bottom = 41.0
+text = "5"
+label_settings = SubResource("LabelSettings_1efjf")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/player_attack.gd" id="1_5jqjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m73ih"]
-size = Vector2(7, 23)
+size = Vector2(11.5, 23)
 
 [node name="PlayerAttack" type="Area2D"]
 collision_layer = 2
@@ -11,6 +11,7 @@ collision_mask = 4
 script = ExtResource("1_5jqjy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.25, 0)
 shape = SubResource("RectangleShape2D_m73ih")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

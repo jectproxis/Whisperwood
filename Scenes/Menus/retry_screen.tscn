@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bltx4jaivoy1y"]
+
+[ext_resource type="Script" path="res://Scripts/retry_screen.gd" id="1_o7xos"]
+[ext_resource type="FontFile" uid="uid://crkqtfwcd84jb" path="res://Assets/Textures/Fonts/Kenney Pixel Square.ttf" id="1_sn5qv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qr5o"]
+font = ExtResource("1_sn5qv")
+font_size = 30
+
+[node name="RetryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7xos")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 359.0
+color = Color(0, 0, 0, 0.513726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 25.0
+offset_right = 20.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "Retry?"
+label_settings = SubResource("LabelSettings_8qr5o")
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -123.0
+offset_right = 4.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+theme_override_fonts/font = ExtResource("1_sn5qv")
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -90.0
+offset_right = 33.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_top = NodePath("../RestartButton")
+focus_next = NodePath("../RestartButton")
+theme_override_fonts/font = ExtResource("1_sn5qv")
+text = "Quit"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

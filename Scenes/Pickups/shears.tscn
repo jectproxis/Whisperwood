@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bby3ucqfwbiiw" path="res://Assets/Textures/Pickups/bloodysheer.png" id="2_cmkqx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kles"]
-radius = 1.5
-height = 7.11963
+radius = 3.55982
+height = 15.5988
 
 [node name="Shears" type="Area2D"]
 collision_mask = 2
@@ -16,7 +16,6 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_cmkqx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = -0.823348
 shape = SubResource("CapsuleShape2D_7kles")
 

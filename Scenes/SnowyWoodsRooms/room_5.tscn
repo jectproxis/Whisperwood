@@ -1,16 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq0ejcwd4pk8c"]
+[gd_scene load_steps=10 format=3 uid="uid://cq0ejcwd4pk8c"]
 
+[ext_resource type="Script" path="res://Scripts/default_room.gd" id="1_fl06a"]
 [ext_resource type="PackedScene" uid="uid://dxmv8oxmrr1ka" path="res://Scenes/WorldBuilding/snowy_woods_background.tscn" id="1_l61o8"]
 [ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="2_xam1j"]
 [ext_resource type="PackedScene" uid="uid://cwdorqho2b1w7" path="res://Scenes/PlayerComponents/shade(player).tscn" id="4_exa8c"]
 [ext_resource type="PackedScene" uid="uid://bi73vndpwfbk5" path="res://Scenes/WorldBuilding/exit.tscn" id="5_a2506"]
 [ext_resource type="PackedScene" uid="uid://crox5rqexuhew" path="res://Scenes/WorldBuilding/tile_map.tscn" id="5_xh5p4"]
+[ext_resource type="PackedScene" uid="uid://bapmftnc0irss" path="res://Scenes/Enemies/winter_wisp.tscn" id="6_8y7ty"]
+[ext_resource type="PackedScene" uid="uid://bndjt1r0mswbv" path="res://Scenes/SnowyWoodsRooms/ui.tscn" id="7_otkin"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4wx1y"]
 a = Vector2(0, -659)
 b = Vector2(0, 173)
 
 [node name="Room_5" type="Node2D"]
+script = ExtResource("1_fl06a")
 
 [node name="SnowyWoodsBackground" parent="." instance=ExtResource("1_l61o8")]
 
@@ -69,6 +73,34 @@ position = Vector2(1986, 85)
 scale = Vector2(-0.189379, 10.7177)
 target_scene = "res://Scenes/SnowyWoodsRooms/room_7.tscn"
 spawnpoint = "SpawnPoint_12"
+
+[node name="WinterWisp" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(312, 129)
+
+[node name="WinterWisp2" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(390, 306)
+
+[node name="WinterWisp3" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(579, 448)
+
+[node name="WinterWisp4" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(981, 288)
+
+[node name="WinterWisp5" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(1856, 433)
+
+[node name="WinterWisp6" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(981, 432)
+move_speed = -50
+
+[node name="WinterWisp7" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(1453, 434)
+
+[node name="WinterWisp8" parent="." instance=ExtResource("6_8y7ty")]
+position = Vector2(1505, 210)
+move_speed = -50
+
+[node name="UI" parent="." instance=ExtResource("7_otkin")]
 
 [editable path="SnowyWoodsBackground"]
 [editable path="Shade(Player)"]

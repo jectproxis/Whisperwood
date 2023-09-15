@@ -1,7 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bapmftnc0irss"]
+[gd_scene load_steps=5 format=3 uid="uid://bapmftnc0irss"]
 
 [ext_resource type="Texture2D" uid="uid://cpi80my1i2iqv" path="res://Assets/Textures/Enemies/WinterWisp32.png" id="1_k7rvs"]
 [ext_resource type="Script" path="res://Scripts/winter_wisp.gd" id="1_ualqe"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3yn6e"]
+emission_shape = 1
+emission_sphere_radius = 7.25
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncx1o"]
 radius = 6.0
@@ -11,6 +22,12 @@ position = Vector2(8, 7)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_ualqe")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -10
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_3yn6e")
+lifetime = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_k7rvs")

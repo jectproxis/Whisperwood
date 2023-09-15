@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrd8puksp8w"]
+
+[ext_resource type="Texture2D" uid="uid://cv8gs0jhuc8ej" path="res://Assets/Biomes/Pixel Art Snowy Forest/PNG/Backgrounds/background.png" id="1_qu5bm"]
+[ext_resource type="PackedScene" uid="uid://c5ejgk87rt7xa" path="res://Scenes/Menus/title_menu.tscn" id="2_wagkv"]
+
+[node name="TitleScene" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_qu5bm")
+region_enabled = true
+region_rect = Rect2(254.5, 1.916, 640, 360)
+
+[node name="TitleMenu" parent="." instance=ExtResource("2_wagkv")]

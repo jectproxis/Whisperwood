@@ -36,8 +36,8 @@ func turn_around():
 	no_turn = false
 
 #WinterWisp takes damage
-func take_damage(damage_taken):
-	winter_wisp_hp = winter_wisp_hp - damage_taken
+func take_damage(damage_amount):
+	winter_wisp_hp = winter_wisp_hp - damage_amount
 	
 	if winter_wisp_hp <= 0:
 		die()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8coyh4ug0ok"
-path="res://.godot/imported/B_witch_take_damage.png-a956072f671fa35db63c050d0bfabc1f.ctex"
+uid="uid://d0v7h64tonpyg"
+path="res://.godot/imported/W_Witch_Take_Damage.png-2c9a064bacfff68577996919cf420aaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/BlueWitch/B_witch_take_damage.png"
-dest_files=["res://.godot/imported/B_witch_take_damage.png-a956072f671fa35db63c050d0bfabc1f.ctex"]
+source_file="res://Assets/Textures/WinterWitch/W_Witch_Take_Damage.png"
+dest_files=["res://.godot/imported/W_Witch_Take_Damage.png-2c9a064bacfff68577996919cf420aaf.ctex"]
 
 [params]
 

@@ -1,9 +1,16 @@
 extends CharacterBody2D
 class_name Player
 
+signal damage_taken
+signal player_dead
+signal pause_game
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var attack_marker_1 = $AttackPoint_1
 @onready var attack_marker_2 = $AttackPoint_2
+
+@onready var right_knockback = $RightKnockback
+@onready var left_knockback = $LeftKnockback
 
 @export var move_speed = 300
 @export var jump_force = 500
@@ -20,6 +27,8 @@ var jump_cap = 450
 var max_fall_speed = 700
 
 var push_force = 500
+var knockback_force = 40000
+var being_knockbacked = false
 
 var animated = false
 var dash_on_cooldown = false
@@ -57,14 +66,25 @@ func _physics_process(delta):
 				dash(-dash_length * delta)
 			else:
 				dash(dash_length * delta)
+				
+		#Can pause game when not dead
+		if Input.is_action_just_pressed("pause") && !get_tree().paused:
+			get_tree().paused = true
 			
-		#Code to move left and right at move_speed
-		move_direction = Input.get_axis("move_left","move_right")
-		velocity.x = move_direction * move_speed * delta
+			emit_signal("pause_game")
 		
-		#Flips sprite to the direction the player is facing
-		if move_direction != 0:
-			animated_sprite.flip_h = (move_direction == -1)
+		#Makes knockback happen
+		if being_knockbacked == true:
+			knockback(knockback_force * delta)
+		
+		#Code to move left and right at move_speed
+		if being_knockbacked == false:
+			move_direction = Input.get_axis("move_left","move_right")
+			velocity.x = move_direction * move_speed * delta
+			
+			#Flips sprite to the direction the player is facing
+			if move_direction != 0:
+				animated_sprite.flip_h = (move_direction == -1)
 		
 		#Puts a cap on the double jump
 		if velocity.y < -jump_cap:
@@ -160,9 +180,31 @@ func spawn():
 			break
 
 #Player loses health and dies if hp is equal to or less than 0
-func take_damage(damage_taken):
-	PlayerData.player_hp = PlayerData.player_hp - damage_taken
-	print(PlayerData.player_hp)
+func take_damage(damage_amount):
+	PlayerData.player_hp = PlayerData.player_hp - damage_amount
+	emit_signal("damage_taken")
+	
+	if right_knockback.is_colliding():
+		knockback_force = -12000
+		being_knockbacked = true
+		
+		animated = true
+		animated_sprite.play("player_hit")
+		
+		await get_tree().create_timer(0.2).timeout
+		being_knockbacked = false
+		animated = false
+	
+	elif left_knockback.is_colliding():
+		knockback_force = 120000
+		being_knockbacked = true
+		
+		animated = true
+		animated_sprite.play("player_hit")
+		
+		await get_tree().create_timer(0.2).timeout
+		being_knockbacked = false
+		animated = false
 	
 	if PlayerData.player_hp <= 0:
 		die()
@@ -172,3 +214,11 @@ func die():
 	animated = true
 	dead = true
 	animated_sprite.play("die")
+	
+	emit_signal("player_dead")
+
+func knockback(force):
+	velocity.x = 0 
+	velocity.x += force
+	
+	move_and_slide()

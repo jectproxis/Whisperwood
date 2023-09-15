@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codw3jylgkgwc"
-path="res://.godot/imported/B_witch_death.png-c7ede8cd139763c6f35edcba6e74a417.ctex"
+uid="uid://rw2vh535val"
+path="res://.godot/imported/Heart.png-139e00a77a5013254a8dcf0176374d8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/BlueWitch/B_witch_death.png"
-dest_files=["res://.godot/imported/B_witch_death.png-c7ede8cd139763c6f35edcba6e74a417.ctex"]
+source_file="res://Assets/Textures/UIElements/Heart.png"
+dest_files=["res://.godot/imported/Heart.png-139e00a77a5013254a8dcf0176374d8a.ctex"]
 
 [params]
 

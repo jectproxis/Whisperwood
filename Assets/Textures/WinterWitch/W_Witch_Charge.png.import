@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duomvmbja5ajq"
-path="res://.godot/imported/B_witch_charge.png-01aeef79d2c860704ab857bdf4733521.ctex"
+uid="uid://cbq8kvpddln7e"
+path="res://.godot/imported/W_Witch_Charge.png-5fba78ffd8c530f5966f6f58398a2bce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/BlueWitch/B_witch_charge.png"
-dest_files=["res://.godot/imported/B_witch_charge.png-01aeef79d2c860704ab857bdf4733521.ctex"]
+source_file="res://Assets/Textures/WinterWitch/W_Witch_Charge.png"
+dest_files=["res://.godot/imported/W_Witch_Charge.png-5fba78ffd8c530f5966f6f58398a2bce.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cwdorqho2b1w7"]
+[gd_scene load_steps=41 format=3 uid="uid://cwdorqho2b1w7"]
 
 [ext_resource type="Texture2D" uid="uid://dl2hjfuk5kc5t" path="res://Assets/Textures/Shade(Player)/AnimationSheet_Character.png" id="1_fduj6"]
 [ext_resource type="Script" path="res://Scripts/shade(player).gd" id="1_j8ion"]
@@ -99,6 +99,14 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("1_fduj6")
 region = Rect2(64, 160, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7if"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knv3c"]
+atlas = ExtResource("1_fduj6")
+region = Rect2(32, 224, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ci7t7"]
 atlas = ExtResource("1_fduj6")
 region = Rect2(0, 96, 32, 32)
@@ -160,7 +168,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -237,6 +245,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knv3c")
+}],
+"loop": false,
+"name": &"player_hit",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hsm71")
 }, {
 "duration": 1.0,
@@ -280,6 +299,14 @@ animations = [{
 radius = 4.5
 height = 28.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hs53y"]
+radius = 2.0
+height = 25.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_duq6e"]
+radius = 2.0
+height = 25.0
+
 [node name="Shade(Player)" type="CharacterBody2D"]
 texture_filter = 1
 collision_layer = 2
@@ -292,9 +319,9 @@ dash_cooldown_time = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kskfx")
-animation = &"die"
+animation = &"player_hit"
 autoplay = "idle"
-frame = 7
+frame = 1
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -319,3 +346,19 @@ position = Vector2(10, 0)
 
 [node name="AttackPoint_2" type="Marker2D" parent="."]
 position = Vector2(-11, 0)
+
+[node name="RightKnockback" type="ShapeCast2D" parent="."]
+position = Vector2(3, 2)
+shape = SubResource("CapsuleShape2D_hs53y")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="LeftKnockback" type="ShapeCast2D" parent="."]
+position = Vector2(-4, 2)
+shape = SubResource("CapsuleShape2D_duq6e")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
