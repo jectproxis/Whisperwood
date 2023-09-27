@@ -196,7 +196,7 @@ func take_damage(damage_amount):
 		animated = false
 	
 	elif left_knockback.is_colliding():
-		knockback_force = 120000
+		knockback_force = 12000
 		being_knockbacked = true
 		
 		animated = true
