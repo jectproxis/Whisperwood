@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu1va8eae3n36"
-path="res://.godot/imported/W_Witch_Attack.png-d87e32347b8a922e2d54694f027e5d1f.ctex"
+uid="uid://cb6k6s383ltuy"
+path="res://.godot/imported/Ice_Witch_Charge_Loop.png-27f2647f6d5371b75d76c7ea0fac420c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/WinterWitch/W_Witch_Attack.png"
-dest_files=["res://.godot/imported/W_Witch_Attack.png-d87e32347b8a922e2d54694f027e5d1f.ctex"]
+source_file="res://Assets/Textures/Ice_Witch/Ice_Witch_Charge_Loop.png"
+dest_files=["res://.godot/imported/Ice_Witch_Charge_Loop.png-27f2647f6d5371b75d76c7ea0fac420c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0j7w5hn4xp12"
-path="res://.godot/imported/W_Witch_Death.png-4b5a2b60931b429d82fd7989915f9339.ctex"
+uid="uid://c0g0tnvoq5mny"
+path="res://.godot/imported/Ice_Witch_Idle.png-f24974abc387119c8ea28ea5a0864ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/WinterWitch/W_Witch_Death.png"
-dest_files=["res://.godot/imported/W_Witch_Death.png-4b5a2b60931b429d82fd7989915f9339.ctex"]
+source_file="res://Assets/Textures/Ice_Witch/Ice_Witch_Idle.png"
+dest_files=["res://.godot/imported/Ice_Witch_Idle.png-f24974abc387119c8ea28ea5a0864ec4.ctex"]
 
 [params]
 

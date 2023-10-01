@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5sfqclfm6prj"
-path="res://.godot/imported/W_Witch_Run.png-f5757edf39a110aefab99f4580a29e6d.ctex"
+uid="uid://d22q12mdj2hks"
+path="res://.godot/imported/Ice_Witch_Attack.png-d9456c2d0bc9e0e9aaf0c6d370c8f8fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/WinterWitch/W_Witch_Run.png"
-dest_files=["res://.godot/imported/W_Witch_Run.png-f5757edf39a110aefab99f4580a29e6d.ctex"]
+source_file="res://Assets/Textures/Ice_Witch/Ice_Witch_Attack.png"
+dest_files=["res://.godot/imported/Ice_Witch_Attack.png-d9456c2d0bc9e0e9aaf0c6d370c8f8fd.ctex"]
 
 [params]
 
