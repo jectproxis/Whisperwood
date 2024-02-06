@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://q044d8ld5xh"
+path="res://.godot/imported/out_of_bounds_dialogue.dialogue-43c291e947dedb7771a9f19a545e4463.tres"
+
+[deps]
+
+source_file="res://Dialogue/out_of_bounds_dialogue.dialogue"
+dest_files=["res://.godot/imported/out_of_bounds_dialogue.dialogue-43c291e947dedb7771a9f19a545e4463.tres"]
+
+[params]
+
+defaults=true

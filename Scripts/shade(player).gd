@@ -28,12 +28,14 @@ var max_fall_speed = 700
 
 var push_force = 500
 var knockback_force = 40000
-var being_knockbacked = false
+@export var right_knockback_force = -12000
 
+@export var left_knockback_force = 12000
+var being_knockbacked = false
 var animated = false
+
 var dash_on_cooldown = false
 var double_jumped = false
-
 var dead = false
 
 func _ready():
@@ -185,7 +187,7 @@ func take_damage(damage_amount):
 	emit_signal("damage_taken")
 	
 	if right_knockback.is_colliding():
-		knockback_force = -12000
+		knockback_force = right_knockback_force
 		being_knockbacked = true
 		
 		animated = true
@@ -196,7 +198,7 @@ func take_damage(damage_amount):
 		animated = false
 	
 	elif left_knockback.is_colliding():
-		knockback_force = 12000
+		knockback_force = left_knockback_force
 		being_knockbacked = true
 		
 		animated = true
